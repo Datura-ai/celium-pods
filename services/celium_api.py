@@ -127,7 +127,4 @@ class CeliumApiService:
             response.raise_for_status()
             
             raw_response = response.json()
-            print(f"Raw rent_pod response: {json.dumps(raw_response, indent=2)}")
-            
-            # Use executor_id as the pod id
             return RentPodResponse(id=executor_id) 
