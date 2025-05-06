@@ -29,13 +29,19 @@ class Machine(BaseModel):
         )
 
 
-class CreateMachineRequest(BaseModel):
-    """Request model for creating a machine via template and pod rental."""
+class CreateTemplateRequest(BaseModel):
+    """Request model for creating a template, without executor and ssh details."""
     port_mapping: List[int]
     docker_image: str
-    docker_image_digest: str
-    docker_image_tag: str
-    startup_commands: str
+    docker_image_digest: str = ""
+    docker_image_tag: str = "latest"
+    startup_commands: str = ""
+    name: str
+
+
+class CreatePodRequest(BaseModel):
+    """Request model for creating a pod using an existing template."""
+    template_id: str
     executor_id: str
     ssh_key: str
     name: str 

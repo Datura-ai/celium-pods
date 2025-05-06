@@ -25,4 +25,5 @@ class CeliumTemplateCreate(BaseModel):
 
 class CeliumTemplateResponse(BaseModel):
     """Response model for a template from Celium."""
-    id: str 
+    id: str
+    status: str 
